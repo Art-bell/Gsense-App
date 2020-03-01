@@ -9,6 +9,9 @@ var buttonPeripheral = [UIButton: CBPeripheral]()
 class PeripheralSelector: UIViewController {
   @IBOutlet weak var SensorStack: UIStackView!
   @IBOutlet weak var sensorLabel: UILabel!
+//  @IBAction func unwindToSelection(_ unwindSegue: UIStoryboardSegue) {
+//
+//  }
   var centralManager: CBCentralManager!
   var sensorPeripheral: CBPeripheral!
 

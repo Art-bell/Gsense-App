@@ -97,9 +97,10 @@ extension HRMViewController: CBCentralManagerDelegate {
 //  }
   
   func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
-
+    _ = navigationController?.popViewController(animated: true)
+    
      print("Device disconnected, scanning again")
-     centralManager.scanForPeripherals(withServices: [heartRateServiceCBUUID])
+     
   }
   
 }
