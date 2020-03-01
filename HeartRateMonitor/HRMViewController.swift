@@ -30,16 +30,22 @@ class HRMViewController: UIViewController {
   }
   
   var centralManager: CBCentralManager!
-  var heartRatePeripheral: CBPeripheral!
+  var sensorPeripheral: CBPeripheral!
   
   
   override func viewDidLoad() {
     gestureLabel.text = "None"
-    bodySensorLocationLabel.text = "0"
+    bodySensorLocationLabel.text = "5"
 //    centralManager = CBCentralManager(delegate: self, queue: nil)
     super.viewDidLoad()
     // Make the digits monospaces to avoid shifting when the numbers change
     gestureLabel.font = UIFont.monospacedDigitSystemFont(ofSize: gestureLabel.font!.pointSize, weight: .regular)
+    centralManager.delegate = self
+    centralManager.stopScan()
+    print("Stopped scanning")
+    
+     centralManager.connect(sensorPeripheral)
+     print("Proceeding to find services in new view")
   }
 
   func onHeartRateReceived(_ gesture: Int) {
@@ -49,6 +55,15 @@ class HRMViewController: UIViewController {
 }
 
 extension HRMViewController: CBCentralManagerDelegate {
+  
+  func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
+      print("Connected to device in HRM")
+      sensorPeripheral.delegate = self
+    sensorPeripheral.discoverServices([heartRateServiceCBUUID])
+    
+    
+  }
+  
   func centralManagerDidUpdateState(_ central: CBCentralManager) {
     
     switch central.state {
@@ -64,24 +79,25 @@ extension HRMViewController: CBCentralManagerDelegate {
     case .poweredOff:
       print("central.state is .poweredOff")
     case .poweredOn:
-      centralManager.scanForPeripherals(withServices: [heartRateServiceCBUUID])
       print("central.state is .poweredOn")
+      
+      
     }
   }
-  func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
-      print(peripheral)
-      heartRatePeripheral = peripheral
-      heartRatePeripheral.delegate = self
-      centralManager.stopScan()
-      centralManager.connect(heartRatePeripheral)
-  }
-  func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
-    print("Connected to device")
-    heartRatePeripheral.discoverServices([heartRateServiceCBUUID])
-  }
+//  func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
+//      print(peripheral)
+//      heartRatePeripheral = peripheral
+//      heartRatePeripheral.delegate = self
+//      centralManager.stopScan()
+//      centralManager.connect(heartRatePeripheral)
+//  }
+//  func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
+//    print("Connected to device")
+//    heartRatePeripheral.discoverServices([heartRateServiceCBUUID])
+//  }
   
   func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
-    
+
      print("Device disconnected, scanning again")
      centralManager.scanForPeripherals(withServices: [heartRateServiceCBUUID])
   }
@@ -89,16 +105,19 @@ extension HRMViewController: CBCentralManagerDelegate {
 }
 
 extension HRMViewController: CBPeripheralDelegate {
+  
   func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
     guard let services = peripheral.services else { return }
-    
+    print("Services found in HRM")
     for service in services {
       print(service)
       peripheral.discoverCharacteristics(nil, for: service)
     }
   }
+  
   func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
     guard let characteristics = service.characteristics else {return}
+
     for characteristic in characteristics {
       
       if characteristic.properties.contains(.read)
