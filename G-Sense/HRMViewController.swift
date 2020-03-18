@@ -20,18 +20,56 @@ let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
 
 
 var arrChar = [Int: CBCharacteristic]()
-class HRMViewController: UIViewController {
 
-  @IBOutlet weak var logButton: UIButton!
+class HRMViewController: UIViewController ,SPTSessionManagerDelegate, SPTAppRemoteDelegate, SPTAppRemotePlayerStateDelegate  {
+
+  @IBOutlet var strLogPressed: UIButton!
+  @IBOutlet weak var logPressed: UIButton!
   @IBOutlet weak var gestureLabel: UILabel!
   @IBOutlet weak var bodySensorLocationLabel: UILabel!
+  let requestedScopes: SPTScope = [.appRemoteControl]
   
-  @IBAction func loginPressed(_ sender: Any) {
+  @IBAction func loginPressed(_ sender: Any)
+  {
+  self.sessionManager.initiateSession(with: requestedScopes, options: .default)
+    Thread.sleep(forTimeInterval: 0.5)
+    self.strLogPressed.setTitle("Connected to Spotify", for: .normal)
+    self.strLogPressed.backgroundColor = UIColor.systemGreen
+     
   }
   
   var centralManager: CBCentralManager!
   var sensorPeripheral: CBPeripheral!
   
+  let SpotifyClientID = "dad09a8631ca43f192359868aadfecd6"
+  let SpotifyRedirectURI = URL(string: "g-sense://returnAfterLogin")!
+  
+  lazy var configuration: SPTConfiguration = {
+      let configuration = SPTConfiguration(clientID: SpotifyClientID, redirectURL: SpotifyRedirectURI)
+      // Set the playURI to a non-nil value so that Spotify plays music after authenticating and App Remote can connect
+      // otherwise another app switch will be required
+      configuration.playURI = ""
+
+      // Set these url's to your backend which contains the secret to exchange for an access token
+      // You can use the provided ruby script spotify_token_swap.rb for testing purposes
+      configuration.tokenSwapURL = URL(string: "https://g-sense.herokuapp.com/api/token")
+      configuration.tokenRefreshURL = URL(string: "https://g-sense.herokuapp.com/api/refresh_token")
+      return configuration
+  }()
+  
+  lazy var sessionManager: SPTSessionManager = {
+      let manager = SPTSessionManager(configuration: configuration, delegate: self)
+      return manager
+  }()
+
+  lazy var appRemote: SPTAppRemote = {
+      let appRemote = SPTAppRemote(configuration: configuration, logLevel: .debug)
+      appRemote.delegate = self
+      return appRemote
+  }()
+
+  var appCallback: SPTAppRemoteCallback? = nil
+          
   
   override func viewDidLoad() {
     gestureLabel.text = "None"
@@ -46,12 +84,62 @@ class HRMViewController: UIViewController {
     
      centralManager.connect(sensorPeripheral)
      print("Proceeding to find services in new view")
+    if let _ = self.appRemote.connectionParameters.accessToken {
+      self.appRemote.connect()
+    }
+    else {
+      print("No access token")
+    }
+//    self.strLogPressed.setTitle("Connected to Spotify", for: .normal)
+//    self.strLogPressed.backgroundColor = UIColor.green
   }
 
   func onHeartRateReceived(_ gesture: Int) {
     gestureLabel.text = String(gesture)
     print("Gesture: \(gesture)")
   }
+  
+  func appRemoteDidEstablishConnection(_ appRemote: SPTAppRemote) {
+    print("Established connect")
+    self.appRemote = appRemote
+//          appRemote.playerAPI?.delegate = self
+//          appRemote.playerAPI?.subscribe(toPlayerState: { (success, error) in
+//              if let error = error {
+//                  print("Error subscribing to player state:" + error.localizedDescription)
+//              }
+//          })
+//    appRemote.playerAPI?.skip(toNext: appCallback)
+
+     
+      }
+   func appRemote(_ appRemote: SPTAppRemote, didFailConnectionAttemptWithError error: Error?) {
+     print("Failed")
+   }
+   
+   func appRemote(_ appRemote: SPTAppRemote, didDisconnectWithError error: Error?) {
+     print("Disconnected")
+   }
+   
+   func playerStateDidChange(_ playerState: SPTAppRemotePlayerState) {
+     print("Player state changed")
+   }
+  
+  func sessionManager(manager: SPTSessionManager, didFailWith error: Error) {
+    print("Manager failed")
+    print(error)
+  }
+  
+  func sessionManager(manager: SPTSessionManager, didRenew session: SPTSession) {
+       print("Session renewed")
+   }
+
+   func sessionManager(manager: SPTSessionManager, didInitiate session: SPTSession) {
+    print("Session started")
+  appRemote.connectionParameters.accessToken = session.accessToken
+       appRemote.connect()
+    
+   }
+  
 }
 
 extension HRMViewController: CBCentralManagerDelegate {
@@ -102,6 +190,11 @@ extension HRMViewController: CBCentralManagerDelegate {
      print("Device disconnected, scanning again")
      
   }
+  
+  func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
+    print("Unable to connect to device")
+     _ = navigationController?.popViewController(animated: true)
+   }
   
 }
 
@@ -155,6 +248,19 @@ extension HRMViewController: CBPeripheralDelegate {
       switch gestureVal {
       case 1:
         task.resume()
+      case 2:
+        print("Skip song")
+        self.appRemote.playerAPI?.delegate = self
+        self.appRemote.playerAPI?.subscribe(toPlayerState: { (success, error) in
+                  if let error = error {
+                      print("Error subscribing to player state:" + error.localizedDescription)
+                  }
+                  else {
+                    print("worked")
+      }
+              })
+        self.appRemote.playerAPI?.skip(toNext: appCallback)
+//        appRemote.playerAPI?.skip(toNext: appCallback)
       default:
         print("None occured")
         

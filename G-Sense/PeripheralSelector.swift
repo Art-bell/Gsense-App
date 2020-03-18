@@ -93,6 +93,13 @@ extension PeripheralSelector: CBCentralManagerDelegate {
     
   }
   
+  func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
+   print("Unable to connect to device")
+    _ = navigationController?.popViewController(animated: true)
+  }
+  
+ 
+  
   func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
       let label = UILabel()
       let button = UIButton()
