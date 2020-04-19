@@ -7,19 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A52F134243DBE14007804E7 /* GestureSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A52F133243DBE14007804E7 /* GestureSetupViewController.swift */; };
+		0A586359242942FC00080CBA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A586358242942F600080CBA /* GoogleService-Info.plist */; };
 		0AA430D4240F500400AE4D3D /* SpotifyiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA430D3240F500400AE4D3D /* SpotifyiOS.framework */; };
+		0AB43F6F242DC36700A3B179 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB43F6E242DC36600A3B179 /* HomeViewController.swift */; };
+		0AB43F71242DC39700A3B179 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB43F70242DC39700A3B179 /* SignUpViewController.swift */; };
+		0AB43F73242DC42000A3B179 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB43F72242DC42000A3B179 /* LoginViewController.swift */; };
+		0AE14EEB242FA562008DC1D8 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE14EEA242FA562008DC1D8 /* Utilities.swift */; };
 		0AFC996523FD66C30017D2DF /* PeripheralSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFC996423FD66C30017D2DF /* PeripheralSelector.swift */; };
 		5C03606F1FB90013007BC593 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C03606E1FB90013007BC593 /* AppDelegate.swift */; };
 		5C0360711FB90013007BC593 /* HRMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0360701FB90013007BC593 /* HRMViewController.swift */; };
 		5C0360741FB90013007BC593 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C0360721FB90013007BC593 /* Main.storyboard */; };
 		5C0360761FB90013007BC593 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C0360751FB90013007BC593 /* Assets.xcassets */; };
 		5C0360791FB90013007BC593 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C0360771FB90013007BC593 /* LaunchScreen.storyboard */; };
+		B0B4832BDD0B54EEDE215E89 /* Pods_G_sense.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 287226D4FAE7D177AD08787D /* Pods_G_sense.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A52F133243DBE14007804E7 /* GestureSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureSetupViewController.swift; sourceTree = "<group>"; };
+		0A586358242942F600080CBA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0AA430D3240F500400AE4D3D /* SpotifyiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyiOS.framework; sourceTree = "<group>"; };
+		0AB43F6E242DC36600A3B179 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		0AB43F70242DC39700A3B179 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		0AB43F72242DC42000A3B179 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0AC81BAF240C7A9F002D5917 /* GSense.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GSense.h; sourceTree = "<group>"; };
+		0AE14EEA242FA562008DC1D8 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		0AFC996423FD66C30017D2DF /* PeripheralSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralSelector.swift; sourceTree = "<group>"; };
+		287226D4FAE7D177AD08787D /* Pods_G_sense.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_G_sense.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C03606B1FB90013007BC593 /* G-Sense.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "G-Sense.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C03606E1FB90013007BC593 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C0360701FB90013007BC593 /* HRMViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRMViewController.swift; sourceTree = "<group>"; };
@@ -27,6 +41,8 @@
 		5C0360751FB90013007BC593 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C0360781FB90013007BC593 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5C03607A1FB90013007BC593 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A93C89DF3CF54D41ACCA1B38 /* Pods-G-sense.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-G-sense.debug.xcconfig"; path = "Target Support Files/Pods-G-sense/Pods-G-sense.debug.xcconfig"; sourceTree = "<group>"; };
+		B7B244E4FCD2192A6396437C /* Pods-G-sense.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-G-sense.release.xcconfig"; path = "Target Support Files/Pods-G-sense/Pods-G-sense.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,17 +51,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AA430D4240F500400AE4D3D /* SpotifyiOS.framework in Frameworks */,
+				B0B4832BDD0B54EEDE215E89 /* Pods_G_sense.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		01ED3C8817D9EB26F1B1949D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A93C89DF3CF54D41ACCA1B38 /* Pods-G-sense.debug.xcconfig */,
+				B7B244E4FCD2192A6396437C /* Pods-G-sense.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		5C0360621FB90013007BC593 = {
 			isa = PBXGroup;
 			children = (
 				5C03606D1FB90013007BC593 /* G-Sense */,
 				5C03606C1FB90013007BC593 /* Products */,
+				01ED3C8817D9EB26F1B1949D /* Pods */,
+				7B8D6D5575C563AEE252A0F5 /* Frameworks */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -62,6 +90,7 @@
 		5C03606D1FB90013007BC593 /* G-Sense */ = {
 			isa = PBXGroup;
 			children = (
+				0A586358242942F600080CBA /* GoogleService-Info.plist */,
 				5C03606E1FB90013007BC593 /* AppDelegate.swift */,
 				5C0360701FB90013007BC593 /* HRMViewController.swift */,
 				5C0360721FB90013007BC593 /* Main.storyboard */,
@@ -71,8 +100,21 @@
 				0AFC996423FD66C30017D2DF /* PeripheralSelector.swift */,
 				0AC81BAF240C7A9F002D5917 /* GSense.h */,
 				0AA430D3240F500400AE4D3D /* SpotifyiOS.framework */,
+				0AB43F6E242DC36600A3B179 /* HomeViewController.swift */,
+				0AB43F70242DC39700A3B179 /* SignUpViewController.swift */,
+				0AB43F72242DC42000A3B179 /* LoginViewController.swift */,
+				0AE14EEA242FA562008DC1D8 /* Utilities.swift */,
+				0A52F133243DBE14007804E7 /* GestureSetupViewController.swift */,
 			);
 			path = "G-Sense";
+			sourceTree = "<group>";
+		};
+		7B8D6D5575C563AEE252A0F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				287226D4FAE7D177AD08787D /* Pods_G_sense.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -82,9 +124,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5C03607D1FB90013007BC593 /* Build configuration list for PBXNativeTarget "G-sense" */;
 			buildPhases = (
+				D34CD5EA755CE396D9D53EBF /* [CP] Check Pods Manifest.lock */,
 				5C0360671FB90013007BC593 /* Sources */,
 				5C0360681FB90013007BC593 /* Frameworks */,
 				5C0360691FB90013007BC593 /* Resources */,
+				1CC7A8642986C0C6BBD4F81F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -135,6 +179,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C0360791FB90013007BC593 /* LaunchScreen.storyboard in Resources */,
+				0A586359242942FC00080CBA /* GoogleService-Info.plist in Resources */,
 				5C0360761FB90013007BC593 /* Assets.xcassets in Resources */,
 				5C0360741FB90013007BC593 /* Main.storyboard in Resources */,
 			);
@@ -142,14 +187,80 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1CC7A8642986C0C6BBD4F81F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-G-sense/Pods-G-sense-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
+				"${BUILT_PRODUCTS_DIR}/abseil/absl.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/absl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-G-sense/Pods-G-sense-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D34CD5EA755CE396D9D53EBF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-G-sense-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5C0360671FB90013007BC593 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AB43F73242DC42000A3B179 /* LoginViewController.swift in Sources */,
 				5C0360711FB90013007BC593 /* HRMViewController.swift in Sources */,
+				0AE14EEB242FA562008DC1D8 /* Utilities.swift in Sources */,
 				5C03606F1FB90013007BC593 /* AppDelegate.swift in Sources */,
+				0A52F134243DBE14007804E7 /* GestureSetupViewController.swift in Sources */,
 				0AFC996523FD66C30017D2DF /* PeripheralSelector.swift in Sources */,
+				0AB43F6F242DC36700A3B179 /* HomeViewController.swift in Sources */,
+				0AB43F71242DC39700A3B179 /* SignUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +399,7 @@
 		};
 		5C03607E1FB90013007BC593 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A93C89DF3CF54D41ACCA1B38 /* Pods-G-sense.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -299,7 +411,7 @@
 				);
 				INFOPLIST_FILE = "G-Sense/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.app.g-sense";
 				PRODUCT_NAME = "G-Sense";
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/art187/Downloads/HeartRateMonitor-starter/G-Sense/GSense.h";
@@ -311,6 +423,7 @@
 		};
 		5C03607F1FB90013007BC593 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B7B244E4FCD2192A6396437C /* Pods-G-sense.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -322,7 +435,7 @@
 				);
 				INFOPLIST_FILE = "G-Sense/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.app.g-sense";
 				PRODUCT_NAME = "G-Sense";
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/art187/Downloads/HeartRateMonitor-starter/G-Sense/GSense.h";

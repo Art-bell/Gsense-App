@@ -23,7 +23,7 @@ class PeripheralSelector: UIViewController {
     stackView.distribution = .fill // .FillEqually .FillProportionally .EqualSpacing .EqualCentering
     
     
-    super.viewDidLoad()
+    
     
   }
   override func viewDidAppear(_ animated: Bool) {

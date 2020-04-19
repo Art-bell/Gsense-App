@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1068032603784-1rjiuvv78quold5fp42h0nj4n2pcq3br.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1068032603784-1rjiuvv78quold5fp42h0nj4n2pcq3br</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDCxXS-49jrahP7EsFq1ZrbijeGlNzEBTg</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1068032603784</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.app.g-sense</string>
+	<key>PROJECT_ID</key>
+	<string>g-sense</string>
+	<key>STORAGE_BUCKET</key>
+	<string>g-sense.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1068032603784:ios:9d2234d69a12817597d13d</string>
+	<key>DATABASE_URL</key>
+	<string>https://g-sense.firebaseio.com</string>
+</dict>
+</plist>
