@@ -4,7 +4,7 @@ import Firebase
 //let heartRateServiceCBUUID = CBUUID(string: "0x180D")
 //let gesture = CBUUID(string: "0x2A37")
 //let serviceNumber = CBUUID(string: "0x2A38")
-let phone = URL(string: "https://maker.ifttt.com/trigger/SeniorDesignTest/with/key/bTjX4EmGRVKd66ZZp_n5tF")!
+let phone = URL(string: "https://maker.ifttt.com/trigger/phone_task/with/key/bTjX4EmGRVKd66ZZp_n5tF")!
 let light = URL(string: "https://maker.ifttt.com/trigger/toggle_lights/with/key/bTjX4EmGRVKd66ZZp_n5tF")!
 let dominos = URL(string: "https://maker.ifttt.com/trigger/easy_order/with/key/bTjX4EmGRVKd66ZZp_n5tF")!
 
@@ -65,7 +65,9 @@ class HRMViewController: UIViewController ,SPTSessionManagerDelegate, SPTAppRemo
   
   @IBAction func loginPressed(_ sender: Any)
   {
-  self.sessionManager.initiateSession(with: requestedScopes, options: .default)
+    
+    self.sessionManager.initiateSession(with: requestedScopes, options: .default)
+    
     Thread.sleep(forTimeInterval: 0.5)
     self.strLogPressed.setTitle("Connected to Spotify", for: .normal)
     self.strLogPressed.backgroundColor = UIColor.systemGreen
@@ -106,21 +108,22 @@ class HRMViewController: UIViewController ,SPTSessionManagerDelegate, SPTAppRemo
 
   var appCallback: SPTAppRemoteCallback? = nil
           
-    @IBAction func altSkip(_ sender: Any) {
-      print("Skip song")
-       //peripheral.readValue(for: arrChar[0]!)
-      self.appRemote.connectionParameters.accessToken = globalSession?.accessToken
-
-      self.appRemote.connect()
-      self.appRemote.playerAPI?.delegate = self
-      self.appRemote.playerAPI?.subscribe(toPlayerState: { (success, error) in
-                if let error = error {
-                    print("Error subscribing to player state:" + error.localizedDescription)
-                }
-            })
-      
-      
-    }
+//    @IBAction func altSkip(_ sender: Any) {
+//      print("Skip song")
+//       //peripheral.readValue(for: arrChar[0]!)
+//      self.appRemote.connectionParameters.accessToken = globalSession?.accessToken
+//
+//      //self.appRemote.connect()
+//      self.appRemote.playerAPI?.delegate = self
+//
+//      //self.appRemote.playerAPI?.subscribe(toPlayerState: { (success, error) in
+//                //if let error = error {
+//                //    print("Error subscribing to player state:" + //error.localizedDescription)
+//             //   }
+//            //})
+//
+//
+//    }
 
 //  var ref: Firebase.Database.DatabaseReference!
 //
@@ -130,7 +133,7 @@ class HRMViewController: UIViewController ,SPTSessionManagerDelegate, SPTAppRemo
     bodySensorLocationLabel.text = "5"
 //    centralManager = CBCentralManager(delegate: self, queue: nil)
     super.viewDidLoad()
-    
+    self.sessionManager.initiateSession(with: requestedScopes, options: .default)
 //   appRemote.connectionParameters.accessToken = session.accessToken
     
     

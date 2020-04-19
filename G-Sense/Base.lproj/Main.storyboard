@@ -13,7 +13,7 @@
             <objects>
                 <viewController storyboardIdentifier="PeripheralVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dRv-Nf-kFW" customClass="PeripheralSelector" customModule="G_Sense" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9BU-O0-dCP">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OKM-GV-TLB">
@@ -24,7 +24,7 @@
                                 <rect key="frame" x="61" y="201" width="292" height="83"/>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Sensors Found" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f6o-BO-Vg5">
-                                <rect key="frame" x="77" y="109" width="260" height="36"/>
+                                <rect key="frame" x="77" y="21" width="260" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="textColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -57,11 +57,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="HRMViewController" customModule="G_Sense" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="128" translatesAutoresizingMaskIntoConstraints="NO" id="jMv-Nk-fez">
-                                <rect key="frame" x="149.33333333333334" y="261" width="115.33333333333334" height="374.33333333333326"/>
+                                <rect key="frame" x="149.33333333333334" y="233.99999999999997" width="115.33333333333334" height="374.33333333333326"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="N9k-Lq-Uw6">
                                         <rect key="frame" x="0.0" y="0.0" width="115.33333333333333" height="161.33333333333334"/>
@@ -180,7 +180,7 @@
                                 </constraints>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppLogo" translatesAutoresizingMaskIntoConstraints="NO" id="ImR-9E-TzT">
-                                <rect key="frame" x="69" y="288" width="276" height="246"/>
+                                <rect key="frame" x="69" y="258" width="276" height="276"/>
                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="medium"/>
                             </imageView>
                         </subviews>
@@ -191,7 +191,7 @@
                             <constraint firstItem="P8a-fH-k5w" firstAttribute="trailing" secondItem="Txw-Pd-CiW" secondAttribute="trailing" constant="40" id="KYS-eE-gM0"/>
                             <constraint firstItem="Txw-Pd-CiW" firstAttribute="leading" secondItem="P8a-fH-k5w" secondAttribute="leading" constant="40" id="S3g-EV-XTz"/>
                             <constraint firstItem="ImR-9E-TzT" firstAttribute="leading" secondItem="P8a-fH-k5w" secondAttribute="leading" constant="69" id="g4j-R3-uUR"/>
-                            <constraint firstItem="ImR-9E-TzT" firstAttribute="top" secondItem="P8a-fH-k5w" secondAttribute="top" constant="200" id="myo-kT-4WI"/>
+                            <constraint firstItem="ImR-9E-TzT" firstAttribute="top" secondItem="P8a-fH-k5w" secondAttribute="top" constant="170" id="myo-kT-4WI"/>
                             <constraint firstItem="Txw-Pd-CiW" firstAttribute="top" secondItem="ImR-9E-TzT" secondAttribute="bottom" constant="168" id="smC-4v-ERN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="P8a-fH-k5w"/>
@@ -380,6 +380,9 @@
                         <viewLayoutGuide key="safeArea" id="Fph-K8-jDq"/>
                     </view>
                     <size key="freeformSize" width="414" height="1300"/>
+                    <connections>
+                        <segue destination="dRv-Nf-kFW" kind="show" identifier="GoToPeriphSelect" id="F6N-Em-M3c"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E4u-03-kaR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -408,4 +411,7 @@
     <resources>
         <image name="AppLogo" width="100" height="100"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="F6N-Em-M3c"/>
+    </inferredMetricsTieBreakers>
 </document>
