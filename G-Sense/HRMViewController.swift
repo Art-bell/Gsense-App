@@ -63,10 +63,12 @@ class HRMViewController: UIViewController ,SPTSessionManagerDelegate, SPTAppRemo
   @IBOutlet weak var bodySensorLocationLabel: UILabel!
   let requestedScopes: SPTScope = [.appRemoteControl]
   
+  @IBAction func printStt(_ sender: Any) {
+    print("Session Initiated: \(currSession.session)")
+  }
   @IBAction func loginPressed(_ sender: Any)
   {
-    
-    self.sessionManager.initiateSession(with: requestedScopes, options: .default)
+    self.currSession.initiateSession(with: requestedScopes, options: .default)
     
     Thread.sleep(forTimeInterval: 0.5)
     self.strLogPressed.setTitle("Connected to Spotify", for: .normal)
@@ -90,12 +92,13 @@ class HRMViewController: UIViewController ,SPTSessionManagerDelegate, SPTAppRemo
 
       // Set these url's to your backend which contains the secret to exchange for an access token
       // You can use the provided ruby script spotify_token_swap.rb for testing purposes
+    
       configuration.tokenSwapURL = URL(string: "https://g-sense.herokuapp.com/api/token")
       configuration.tokenRefreshURL = URL(string: "https://g-sense.herokuapp.com/api/refresh_token")
       return configuration
   }()
   
-  lazy var sessionManager: SPTSessionManager = {
+  lazy var currSession: SPTSessionManager = {
       let manager = SPTSessionManager(configuration: configuration, delegate: self)
       return manager
   }()
@@ -133,7 +136,7 @@ class HRMViewController: UIViewController ,SPTSessionManagerDelegate, SPTAppRemo
     bodySensorLocationLabel.text = "5"
 //    centralManager = CBCentralManager(delegate: self, queue: nil)
     super.viewDidLoad()
-    self.sessionManager.initiateSession(with: requestedScopes, options: .default)
+    
 //   appRemote.connectionParameters.accessToken = session.accessToken
     
     
@@ -179,7 +182,13 @@ class HRMViewController: UIViewController ,SPTSessionManagerDelegate, SPTAppRemo
   }
   
   func onHeartRateReceived(_ gesture: Int) {
-    gestureLabel.text = String(gesture)
+    if (gesture < 5)
+    {
+      gestureLabel.text = String(gesture)
+    }
+    else {
+      gestureLabel.text = "None"
+    }
     print("Gesture: \(gesture)")
   }
   
@@ -202,6 +211,7 @@ class HRMViewController: UIViewController ,SPTSessionManagerDelegate, SPTAppRemo
    }
    
    func appRemote(_ appRemote: SPTAppRemote, didDisconnectWithError error: Error?) {
+    print("Status \(currSession.renewSession())")
      print("Disconnected")
    }
    
@@ -215,13 +225,20 @@ class HRMViewController: UIViewController ,SPTSessionManagerDelegate, SPTAppRemo
   }
   
   func sessionManager(manager: SPTSessionManager, didRenew session: SPTSession) {
-       print("Session renewed")
+    currSession.session = session
+       globalSession = session
+    
+       appRemote.connectionParameters.accessToken = session.accessToken
+          appRemote.connect()
+       print("Session renewed \(session)")
    }
 
    func sessionManager(manager: SPTSessionManager, didInitiate session: SPTSession) {
     print("Session started")
+    currSession.session = session
     globalSession = session
-  appRemote.connectionParameters.accessToken = session.accessToken
+ 
+    appRemote.connectionParameters.accessToken = session.accessToken
        appRemote.connect()
     
     
@@ -352,11 +369,11 @@ extension HRMViewController: CBPeripheralDelegate {
                         print("Status check")
                          if (globalAppremote != nil && globalAppremote?.playerAPI != nil)
                          {
-                       globalAppremote?.playerAPI?.subscribe(toPlayerState: { (success, error) in
-                             if let error = error {
-                                 print("Error subscribing to player state:" + error.localizedDescription)
-                             }
-                         })
+//                       globalAppremote?.playerAPI?.subscribe(toPlayerState: { (success, error) in
+//                             if let error = error {
+//                                 print("Error subscribing to player state:" + error.localizedDescription)
+//                             }
+//                         })
                           globalAppremote?.playerAPI?.getPlayerState({ (result, error) in if (result! as! SPTAppRemotePlayerState).isPaused == false {
                             globalAppremote?.playerAPI?.pause(self.appCallback)
                             }
@@ -367,6 +384,9 @@ extension HRMViewController: CBPeripheralDelegate {
                           
         //                 globalAppremote?.playerAPI?.skip(toNext: appCallback)
                          }
+                         else {
+                          print("something missing")
+          }
                       case 2:
                         print("Skip song")
                         if (globalAppremote != nil && globalAppremote?.playerAPI != nil)
@@ -395,8 +415,8 @@ extension HRMViewController: CBPeripheralDelegate {
                         
                 }
       }
-      else if (data.first! == 3){ //Phone
-        bodySensorLocationLabel.text = "3"
+        else if (data.first! == 2){
+          bodySensorLocationLabel.text = "3"
         switch gestureVal {
         case 1:
           LightTask.resume()
@@ -417,14 +437,13 @@ extension HRMViewController: CBPeripheralDelegate {
         default:
           print("Mink flow")
         }
+        }
+      else if (data.first! == 3){ //Phone
+        bodySensorLocationLabel.text = "4"
+        
         
       }
-      else if (data.first! == 4){
-        bodySensorLocationLabel.text = "4"
-      }
-      else if (data.first! == 2){
-        bodySensorLocationLabel.text = "5"
-      }
+      
 //      switch gestureVal {
 //            case 1:
 //              task.resume()

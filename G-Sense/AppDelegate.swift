@@ -93,7 +93,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
     print(url)
-    rootViewController.sessionManager.application(app, open: url, options: options)
+    rootViewController.currSession.application(app, open: url, options: options)
     print("Initializing session manager")
     
       return true

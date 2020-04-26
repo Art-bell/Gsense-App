@@ -14,7 +14,11 @@ class PeripheralSelector: UIViewController {
 //  }
   var centralManager: CBCentralManager!
   var sensorPeripheral: CBPeripheral!
-
+  override func viewWillAppear(_ animated: Bool)
+  {
+       sensorLabel.text = "No Sensors Found"
+    SensorStack.subviews.forEach({ $0.removeFromSuperview() })
+  }
   override func viewDidLoad() {
     print("Reached")
     centralManager = CBCentralManager(delegate: self, queue: nil)
@@ -27,8 +31,8 @@ class PeripheralSelector: UIViewController {
     
   }
   override func viewDidAppear(_ animated: Bool) {
-    sensorLabel.text = "No Sensors Found"
-    SensorStack.subviews.forEach({ $0.removeFromSuperview() })
+
+//    SensorStack.subviews.forEach({ $0.removeFromSuperview() })
     centralManager.delegate = self
     if (centralManager.state.rawValue == 5)
     {

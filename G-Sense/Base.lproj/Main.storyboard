@@ -13,7 +13,7 @@
             <objects>
                 <viewController storyboardIdentifier="PeripheralVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dRv-Nf-kFW" customClass="PeripheralSelector" customModule="G_Sense" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9BU-O0-dCP">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OKM-GV-TLB">
@@ -24,7 +24,7 @@
                                 <rect key="frame" x="61" y="201" width="292" height="83"/>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Sensors Found" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f6o-BO-Vg5">
-                                <rect key="frame" x="77" y="21" width="260" height="36"/>
+                                <rect key="frame" x="77" y="109" width="260" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="textColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -57,11 +57,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="HRMViewController" customModule="G_Sense" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="128" translatesAutoresizingMaskIntoConstraints="NO" id="jMv-Nk-fez">
-                                <rect key="frame" x="149.33333333333334" y="233.99999999999997" width="115.33333333333334" height="374.33333333333326"/>
+                                <rect key="frame" x="149.33333333333334" y="261" width="115.33333333333334" height="374.33333333333326"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="N9k-Lq-Uw6">
                                         <rect key="frame" x="0.0" y="0.0" width="115.33333333333333" height="161.33333333333334"/>
@@ -113,9 +113,8 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bkf-tx-sgt">
-                                <rect key="frame" x="107" y="632" width="201" height="54"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bkf-tx-sgt">
+                                <rect key="frame" x="107" y="698" width="200" height="54"/>
                                 <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <rect key="contentStretch" x="0.34999999999999998" y="0.0" width="1" height="1"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -129,8 +128,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="bkf-tx-sgt" secondAttribute="bottom" constant="110" id="8JT-m9-mcO"/>
+                            <constraint firstItem="bkf-tx-sgt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="107" id="Aku-yq-9gx"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bkf-tx-sgt" secondAttribute="trailing" constant="107" id="L28-le-ZDe"/>
                             <constraint firstItem="jMv-Nk-fez" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aKy-iB-ovB"/>
                             <constraint firstItem="jMv-Nk-fez" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="gDU-fd-UaS"/>
+                            <constraint firstItem="bkf-tx-sgt" firstAttribute="top" secondItem="jMv-Nk-fez" secondAttribute="bottom" constant="62.670000000000002" id="uBq-X9-mKr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -379,6 +382,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Fph-K8-jDq"/>
                     </view>
+                    <navigationItem key="navigationItem" id="ACo-U6-e7i"/>
                     <size key="freeformSize" width="414" height="1300"/>
                     <connections>
                         <segue destination="dRv-Nf-kFW" kind="show" identifier="GoToPeriphSelect" id="F6N-Em-M3c"/>
@@ -386,7 +390,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E4u-03-kaR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1550.7246376811595" y="-755.35714285714278"/>
+            <point key="canvasLocation" x="2460.8695652173915" y="-755.35714285714278"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dsT-PM-dkN">
@@ -407,11 +411,29 @@
             </objects>
             <point key="canvasLocation" x="-1242.0289855072465" y="-98.4375"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="6Kb-Sc-AOG">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hd1-KC-se8" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="O55-5O-yhz">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="tnD-Kz-SrL" kind="relationship" relationship="rootViewController" id="QcE-ZO-iu6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jGa-NI-nhV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1550.7246376811595" y="-755.35714285714278"/>
+        </scene>
     </scenes>
     <resources>
         <image name="AppLogo" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="F6N-Em-M3c"/>
+        <segue reference="FB5-wr-Jg2"/>
     </inferredMetricsTieBreakers>
 </document>
